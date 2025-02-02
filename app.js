@@ -6,8 +6,11 @@ function agregarAmigo() {
     const input = document.getElementById("amigo");
     const nombre = input.value.trim();
     
-    if (nombre === "" || !isNaN(nombre)) {
-        alert("Por favor, ingresa un nombre válido.");
+    // Validar que el nombre no contenga números ni caracteres no alfabéticos
+    const nombreValido = /^[A-Za-z]+$/.test(nombre);
+    
+    if (nombre === "" || !nombreValido) {
+        alert("Por favor, ingresa un nombre válido (solo letras, sin números ni caracteres especiales).");
         return;
     }
     
